@@ -19,17 +19,32 @@ function Checkout() {
         <div>
           <h3>Hello, {user?.email}</h3>
           <h2 className="checkout__title">Your shopping Basket</h2>
-
-          {basket.map(item => (
-            <CheckoutProduct
-              id={item.id}
-              title={item.title}
-              image={item.image}
-              price={item.price}
-              rating={item.rating}
-            />
-          ))}
-
+          {basket?.length === 0 ? (
+            <div className="checkout__empty">
+              <img
+                src="https://m.media-amazon.com/images/G/01/cart/empty/kettle-desaturated._CB445243794_.svg"
+                alt=""
+              />
+              <div className="checkout__emptyInfo">
+                <h2>Your Amazon Basket is Empty</h2>
+                <a href="./">
+                  <p>Shop today's deals</p>
+                </a>
+              </div>
+            </div>
+          ) : (
+            <div className="checkout__basket">
+              {basket.map((item) => (
+                <CheckoutProduct
+                  id={item.id}
+                  title={item.title}
+                  image={item.image}
+                  price={item.price}
+                  rating={item.rating}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
 

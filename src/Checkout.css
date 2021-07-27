@@ -15,3 +15,25 @@
   padding: 10px;
   border-bottom: 1px solid lightgray;
 }
+.checkout__empty {
+  display: flex;
+  position: relative;
+  text-align: center;
+  height: 365px;
+  width: 100%;
+  padding: 20px 20px 5px;
+}
+.checkout__emptyInfo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+.checkout__emptyInfo > a {
+  padding-top: 3px;
+  font-size: 14px;
+  margin: 5px;
+  text-decoration: none;
+}
+.checkout__emptyInfo > a:hover {
+  text-decoration: underline;
+}
