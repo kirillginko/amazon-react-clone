@@ -44,7 +44,12 @@ function HeaderBottom() {
         <div className="header__bottom-app">
           <img
             alt="Amazon App"
-            src="https://images-na.ssl-images-amazon.com/images/G/01/red-cs/MM/landingpage/evergreenFSI/desktop_EvergreenIneligible.png"
+            src="https://logos-download.com/wp-content/uploads/2016/09/Amazon_Echo_logo_AmazonEcho-700x156.png"
+          />
+          <img
+            className="header_bottom_logo"
+            alt="Amazon App"
+            src="https://www.logo.wine/a/logo/Amazon_Prime/Amazon_Prime-Logo.wine.svg"
           />
         </div>
       </div>

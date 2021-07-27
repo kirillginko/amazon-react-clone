@@ -27,8 +27,14 @@
   font-size: 14px;
   font-weight: 600;
 }
+.header__bottom-app {
+  display: flex;
+}
 .header__bottom-app > img {
-  height: 50px;
+  display: flex;
+  text-align: center;
+  height: 30px;
+  padding-right: 10px;
   width: 100%;
-  margin: 10px;
+  padding-bottom: 5px;
 }
