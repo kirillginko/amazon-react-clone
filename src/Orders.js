@@ -3,7 +3,6 @@ import { db } from "./firebase";
 import "./Orders.css";
 import { useStateValue } from "./StateProvider";
 import Order from "./Order";
-import Login from "./Login";
 import { useHistory } from "react-router-dom";
 
 function Orders() {

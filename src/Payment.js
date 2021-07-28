@@ -21,6 +21,21 @@ function Payment() {
   const [error, setError] = useState(null);
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState(true);
+  const [filteredBasket, setFilteredBasket] = useState();
+
+  const findQuantity = (id) => {
+    const quantity = basket?.filter((item) => item.id === id);
+    return quantity.length;
+  };
+
+  useEffect(() => {
+    let filteredList = [];
+    filteredList = basket.filter(
+      (item, i) => i === basket.findIndex((x) => x.id === item.id)
+    );
+    setFilteredBasket(filteredList);
+    console.log(filteredList);
+  }, [basket]);
 
   useEffect(() => {
     // generate the special stripe secret which allows us to charge a customer
@@ -107,13 +122,14 @@ function Payment() {
             <h3>Review items and delivery</h3>
           </div>
           <div className="payment__items">
-            {basket.map((item) => (
+            {filteredBasket?.map((item) => (
               <CheckoutProduct
                 id={item.id}
                 title={item.title}
                 image={item.image}
                 price={item.price}
                 rating={item.rating}
+                quantity={findQuantity(item.id)}
               />
             ))}
           </div>

@@ -32,9 +32,9 @@
 }
 .header__bottom-app > img {
   display: flex;
-  text-align: center;
   height: 30px;
-  padding-right: 10px;
+  /* padding-right: 10px; */
   width: 100%;
   padding-bottom: 5px;
+  object-fit: contain;
 }

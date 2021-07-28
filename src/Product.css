@@ -35,10 +35,14 @@
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
   cursor: pointer;
-  transition: background 0.5s;
+  transition: all 0.2s;
 }
 .product > button:hover {
   background: #e0a205;
+}
+.product > button:active {
+  background: #f0c14b;
+  transform: translateY(2px);
 }
 
 .product__price {

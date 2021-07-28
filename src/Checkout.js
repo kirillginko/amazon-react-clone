@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Checkout.css";
 import Subtotal from "./Subtotal";
 import { useStateValue } from "./StateProvider";
@@ -6,6 +6,21 @@ import CheckoutProduct from "./CheckoutProduct";
 
 function Checkout() {
   const [{ basket, user }, dispatch] = useStateValue();
+  const [filteredBasket, setFilteredBasket] = useState();
+
+  const findQuantity = (id) => {
+    const quantity = basket?.filter((item) => item.id === id);
+    return quantity.length;
+  };
+
+  useEffect(() => {
+    let filteredList = [];
+    filteredList = basket.filter(
+      (item, i) => i === basket.findIndex((x) => x.id === item.id)
+    );
+    setFilteredBasket(filteredList);
+    console.log(filteredList);
+  }, [basket]);
 
   return (
     <div className="checkout">
@@ -34,13 +49,14 @@ function Checkout() {
             </div>
           ) : (
             <div className="checkout__basket">
-              {basket.map((item) => (
+              {filteredBasket?.map((item) => (
                 <CheckoutProduct
                   id={item.id}
                   title={item.title}
                   image={item.image}
                   price={item.price}
                   rating={item.rating}
+                  quantity={findQuantity(item.id)}
                 />
               ))}
             </div>
